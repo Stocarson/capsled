@@ -41,13 +41,23 @@ int main (int argc, char *argv[]) {
             if(capslock) {
                 capslock = False;
                 // turn on the LED
-                fprintf(ledfd, "0 on");
+				if(argc>1){
+					if(strcmp(argv[1], "-b") || strcmp(argv[1], "--blink"))
+						fprintf(ledfd, "0 on");
+				}
+				else
+                	fprintf(ledfd, "0 on");
                 fflush(ledfd);
             }
             else {
                 capslock = True;
                 // turn off the LED
-                fprintf(ledfd, "0 off");
+				if(argc>1) {
+					if(strcmp(argv[1], "-b") || strcmp(argv[1], "--blink"))
+						fprintf(ledfd, "0 blink");
+				}
+				else
+                	fprintf(ledfd, "0 off");
                 fflush(ledfd);
             }
         }
