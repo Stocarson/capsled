@@ -9,3 +9,7 @@ Other systems might not be supported. If you manage to compile capsled on other 
 #### Execute
 
 This software needs to be run as root/with root privileges for reading the capslock keystrokes and controlling the power led.
+
+#### Install
+
+Running `make install` (as root) installs the software to usr/bin/ and creates and enables it's service in /etc/systemd/system/
